@@ -9,7 +9,7 @@ def update_price():
     global log_text
 
     # Генерируем случайное изменение цены (-1% до +1%)
-    change_percent = random.uniform(-1, 1)
+    change_percent = random.uniform(-0.1, 0.1)
     change_amount = current_price * change_percent / 100
     current_price += change_amount
 
@@ -32,14 +32,14 @@ def update_price():
     log_text.see(tk.END)  # Прокручиваем лог вниз
 
     # Запускаем функцию обновления цены через 10 секунд
-    root.after(10000, update_price)
+    root.after(3500, update_price)
 
 # Создаем главное окно
 root = tk.Tk()
 root.title("Курс доллара к рублю")
 
 # Изначальная цена доллара к рублю
-current_price = 73.00
+current_price = 96.50
 
 # Создаем метку для отображения цены
 price_label = tk.Label(root, text=f"1 USD = {current_price:.2f} RUB", font=("Helvetica", 24))
